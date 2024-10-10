@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Picture Gallery</title>
+    <style>
+        body {
+            font-family: "Arial", sans-serif;
+            background-color: #3A3A3A; /* Dark grey background */
+            color: #FFFFFF; /* White text color */
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px; /* Increased max width */
+            margin: 40px auto;
+            padding: 20px;
+            background-color: rgba(128, 128, 128, 0.3); /* Semi-transparent grey background */
+            backdrop-filter: blur(10px); /* Frosted glass effect */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            overflow: hidden; /* Hide overflow for a clean look */
+        }
+
+        h1 {
+            font-size: 36px;
+            text-align: center;
+            color: #FFFFFF; /* White color for heading */
+            margin-bottom: 20px;
+        }
+
+        /* Navigation styles */
+        .navigation {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .navigation a {
+            margin: 0 15px;
+            font-size: 18px;
+            color: #FFFFFF; /* White color for navigation links */
+            padding: 10px 20px;
+            border: 1px solid #FFFFFF; /* White border for navigation links */
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .navigation a:hover {
+            background-color: #CCCCCC; /* Light grey background on hover */
+        }
+
+        .navigation a.active {
+            background-color: #7D7D7D; /* Darker grey for active button */
+            color: #FFFFFF; /* Keep text color white for contrast */
+        }
+
+        /* Gallery styles */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Larger cells for bigger images */
+            gap: 15px; /* Space between images */
+        }
+
+        .gallery img {
+            max-width: 100%; /* Ensure images don't overflow */
+            max-height: 200px; /* Limit the height for better viewing */
+            width: auto; /* Maintain aspect ratio */
+            height: auto; /* Maintain aspect ratio */
+            background-color: #000; /* Black background behind images */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Shadow effect */
+            transition: transform 0.3s; /* Animation for hover effect */
+            cursor: pointer; /* Show pointer on hover */
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05); /* Zoom effect on hover */
+        }
+
+        /* Lightbox styles */
+        #lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        #lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+
+        #lightbox:after {
+            content: '✖';
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+
+        #lightbox:after:hover {
+            color: #f00;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->    
+        <h1>Project Gallery</h1>
+        <div class="navigation">
+            <a href="index3.html">Home</a>
+            <a href="project.html" class="active">Projects</a>
+        </div>
+        <!-- Photo Grid -->
+        <div class="gallery"> 
+            <div class="image-wrapper">
+                <img src="img/1.jpg" alt="My Picture" onclick="openLightbox(this)" />
+            </div>
+            <div class="image-wrapper">
+                <img src="img/4.jpg" alt="My Picture" onclick="openLightbox(this)" />
+            </div>
+            <div class="image-wrapper">
+                <img src="img/2.jpg" alt="My Picture" onclick="openLightbox(this)" />
+            </div>
+            <div class="image-wrapper">
+                <img src="img/7.jpg" alt="My Picture" onclick="openLightbox(this)" />
+            </div>
+            <div class="image-wrapper">
+                <img src="img/5.jpg" alt="My Picture" onclick="openLightbox(this)" />
+            </div>
+            <div class="image-wrapper">
+                <img src="img/15.jpg" alt="On going surgery" onclick="openLightbox(this)" />
+            </div>
+            <div class="image-wrapper">
+                <img src="img/14.jpg" alt="Nursing room" onclick="openLightbox(this)" />
+            </div>  
+            <div class="image-wrapper">
+                <img src="img/6.jpg" alt="On duty" onclick="openLightbox(this)" />
+            </div>
+            <div class="image-wrapper">
+                <img src="img/3.jpg" alt="On surgery" onclick="openLightbox(this)" />
+            </div>          
+            <div class="image-wrapper">
+                <img src="img/8.jpg" alt="Co-student nurse on duty" onclick="openLightbox(this)" />
+            </div>
+            <div class="image-wrapper">
+                <img src="img/9.jpg" alt="Co-student nurse on duty" onclick="openLightbox(this)" />
+            </div>
+            <div class="image-wrapper">
+                <img src="img/10.jpg" alt="My Research groupmates" onclick="openLightbox(this)" />
+            </div>
+            <div class="image-wrapper">
+                <img src="img/11.jpg" alt="Pinning ceremony" onclick="openLightbox(this)" />
+            </div>
+            <div class="image-wrapper">
+                <img src="img/12.jpg" alt="Pinning ceremony" onclick="openLightbox(this)" />
+            </div>
+            <div class="image-wrapper">
+                <img src="img/13.jpg" alt="Pinning ceremony" onclick="openLightbox(this)" />
+            </div>
+            <div class="image-wrapper">
+                <img src="img/16.jpg" alt="Co-student nurse on duty" onclick="openLightbox(this)" />
+            </div>
+            <div class="image-wrapper">
+                <img src="img/17.jpg" alt="Co-student nurse" onclick="openLightbox(this)" />
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="Lightbox image">
+    </div>
+
+    <script>
+        // Function to open the lightbox
+        function openLightbox(element) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = element.src; // Set the lightbox image source to the clicked image
+            lightbox.style.display = 'flex'; // Show the lightbox
+        }
+
+        // Function to close the lightbox
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.style.display = 'none'; // Hide the lightbox
+        }
+    </script>
+</body>
+</html>
